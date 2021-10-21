@@ -4,7 +4,7 @@ import BugsnagPluginReact from '@bugsnag/plugin-react'
 import environment from 'shared/constants/environment'
 import '@fontsource/roboto'
 import 'tailwindcss/tailwind.css'
-import { ReactNode } from 'react'
+import { ReactElement } from 'react'
 
 const { bugsnagApiKey } = environment
 
@@ -17,7 +17,7 @@ if (bugsnagApiKey && bugsnagApiKey !== '') {
 	})
 }
 
-function MyApp({ Component, pageProps }: AppProps): ReactNode {
+function MyApp({ Component, pageProps }: AppProps): ReactElement {
 	return (
 		<>
 			<Component {...pageProps} />
