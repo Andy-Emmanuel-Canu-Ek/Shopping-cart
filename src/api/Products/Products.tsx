@@ -1,5 +1,5 @@
 import axios from 'axios'
-import BaseService from '../BaseService'
+import BaseService from '../BaseServices'
 import { Product } from './declaration'
 
 export class ProductsService extends BaseService {

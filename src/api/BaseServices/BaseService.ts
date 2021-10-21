@@ -1,9 +1,7 @@
 import { AxiosError, AxiosRequestConfig } from "axios";
-import environment from 'shared/constants/environment';
-const { reactAppApiUrl } = environment;
 
 class BaseService {
-  protected url: string | undefined = reactAppApiUrl;
+  protected url: string | undefined = "https://products-api-meru.vercel.app/api";
 
   protected getHeaders(params?: any) {
     const config: AxiosRequestConfig = {

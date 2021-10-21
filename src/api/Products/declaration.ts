@@ -1,4 +1,4 @@
-import { Model } from 'api/BaseService/declarations'
+import { Model } from 'api/BaseServices/declarations'
 
 export interface Product extends Model {
 	id: number
