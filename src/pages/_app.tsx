@@ -5,6 +5,7 @@ import environment from 'shared/constants/environment'
 import '@fontsource/roboto'
 import 'tailwindcss/tailwind.css'
 import { ReactElement } from 'react'
+import Navbar from 'components/layouts/Navbar'
 
 const { bugsnagApiKey } = environment
 
@@ -20,6 +21,7 @@ if (bugsnagApiKey && bugsnagApiKey !== '') {
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
 	return (
 		<>
+			<Navbar />
 			<Component {...pageProps} />
 		</>
 	)
