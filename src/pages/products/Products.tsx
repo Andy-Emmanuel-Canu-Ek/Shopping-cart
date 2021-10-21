@@ -1,12 +1,13 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement } from 'react'
 import MainLayout from 'components/layouts/MainLayout'
+import ProductList from 'components/organisms/ProductList'
 
-const Home = (): ReactNode => {
+const Products = (): ReactElement => {
 	return (
 		<MainLayout>
-			<h1>Hola soy Andy</h1>
+			<ProductList />
 		</MainLayout>
 	)
 }
 
-export default Home
+export default Products
