@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 type Props = {
 	name: string
@@ -6,7 +6,7 @@ type Props = {
 	price: number
 }
 
-const ProductDescription = ({ cover, name, price }: Props) => (
+const ProductDescription = ({ cover, name, price }: Props): ReactElement => (
 	<div className="mt-4 flex justify-between">
 		<div>
 			<h3 className="text-sm text-gray-700">

@@ -1,2 +1,2 @@
 import ProductImage from './ProductImage'
-export default ProductImage;
+export default ProductImage
