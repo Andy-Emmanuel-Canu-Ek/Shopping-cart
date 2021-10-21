@@ -18,6 +18,8 @@
     "@bugsnag/js": "^7.10.4",
     "@bugsnag/plugin-react": "^7.10.0",
     "@fontsource/roboto": "^4.4.5",
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "axios": "^0.23.0",
     "next": "^11.1.2",
     "postcss": "^8.3.10",
