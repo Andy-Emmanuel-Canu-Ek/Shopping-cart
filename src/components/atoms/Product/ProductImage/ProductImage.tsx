@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import Image from 'next/image'
 
 type Props = {
 	image_url: string
@@ -12,7 +11,7 @@ const ProductImage = ({ image_url }: Props): ReactElement => (
 			aspect-h-1 rounded-md overflow-hidden 
 			group-hover:opacity-75 lg:h-80 lg:aspect-none"
 	>
-		<Image
+		<img
 			src={image_url}
 			className="
 				w-full h-full object-center 

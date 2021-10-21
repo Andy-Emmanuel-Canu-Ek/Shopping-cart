@@ -8,7 +8,7 @@ type Props = {
 }
 
 const ProductCard = ({ product }: Props): ReactElement => (
-	<div key={product.id} className="group relative">
+	<div className="group relative">
 		<ProductImage image_url={product.cover} />
 		<ProductDescription {...product} />
 	</div>
