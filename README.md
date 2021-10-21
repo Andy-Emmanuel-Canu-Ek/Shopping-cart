@@ -5,6 +5,8 @@ This is a [Next.js](https://nextjs.org/) boilerplate project
 First, run the development server:
 
 ```bash
+npm i 
+# and later
 npm run dev
 # or
 yarn dev
@@ -14,12 +16,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Technology
 
-- MaterialUI
+- Tailwind
 - Husky
 - Prettier
 - ESLint
-- Styled components
-
+- Next Js
 ## Design system
 
 - Atomic Design
