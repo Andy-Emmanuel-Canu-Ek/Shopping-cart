@@ -1,12 +1,14 @@
 import { Product } from 'api/Products/declaration'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PRODUCTS_KEY } from 'shared/constants/local_storage_keys'
 import { getProductsFromLocalStorage } from 'shared/utils/local_storage'
 
 export default function useProductLocalStorage() {
-	const [productsStorage, setProductsStorage] = useState<Product[] | []>(
-		getProductsFromLocalStorage(),
-	)
+	const [productsStorage, setProductsStorage] = useState<Product[] | []>()
+
+	useEffect(() => {
+		setProductsStorage(getProductsFromLocalStorage())
+	}, [])
 
 	const addProductInStorage = (product: Product, quantity: number) => {
 		const products: Product[] = validateProduct(product, quantity, true)
@@ -31,7 +33,7 @@ export default function useProductLocalStorage() {
 		quantity: number,
 		isAdd: boolean,
 	): Product[] => {
-		const currentProduct = productsStorage.find(
+		const currentProduct = productsStorage?.find(
 			({ id }) => id === product.id,
 		)
 
@@ -58,6 +60,7 @@ export default function useProductLocalStorage() {
 	const clearProductsStorage = () => localStorage.removeItem(PRODUCTS_KEY)
 
 	return {
+		productsStorage,
 		addProductInStorage,
 		lessProductInStorage,
 		removeProductStorage,
