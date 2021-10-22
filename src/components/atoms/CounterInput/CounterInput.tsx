@@ -1,4 +1,5 @@
 import React, { Dispatch, ReactElement, SetStateAction } from 'react'
+import { minProductValue } from 'shared/constants/constants'
 
 type Props = {
 	value: number
@@ -6,15 +7,13 @@ type Props = {
 }
 
 const CounterInput = ({ value, setCounter }: Props): ReactElement => {
-	const minimumValue = 1
-
 	const increment = () => setCounter((currentValue) => currentValue + 1)
 
 	const decrement = () =>
 		setCounter((currentValue) => validateMinimum(currentValue))
 
 	const validateMinimum = (currentValue: number): number =>
-		currentValue <= minimumValue ? minimumValue : currentValue - 1
+		currentValue <= minProductValue ? minProductValue : currentValue - 1
 
 	return (
 		<>
@@ -52,8 +51,8 @@ const CounterInput = ({ value, setCounter }: Props): ReactElement => {
                         focus:text-black  md:text-basecursor-default
                         flex items-center text-gray-700  outline-none"
 						name="custom-input-number"
-						defaultValue={minimumValue}
-						min={minimumValue}
+						defaultValue={minProductValue}
+						min={minProductValue}
 						value={value}
 					/>
 					<button

@@ -1,4 +1,3 @@
-import { Product } from 'api/Products/declaration'
 import React, { ReactElement } from 'react'
 
 type Props = {
@@ -7,8 +6,8 @@ type Props = {
 const AddCartButton = ({ onAddNewProducts }: Props): ReactElement => (
 	<div className="mt-6">
 		<button
-		onClick={onAddNewProducts}
-		className="
+			onClick={onAddNewProducts}
+			className="
                    mt-6 w-full bg-indigo-600 
                    border border-transparent 
                    rounded-md py-3 px-8 flex 
