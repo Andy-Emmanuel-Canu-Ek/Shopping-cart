@@ -4,20 +4,19 @@ import ProductImage from 'components/atoms/Product/ProductImage'
 import ProductDescription from 'components/atoms/Product/ProductDescription'
 import AddCartButton from 'components/atoms/AddCartButton'
 import CounterInput from 'components/atoms/CounterInput'
-import useProductLocalStorage from 'hooks/useProductLocalStorage'
 import Swal from 'sweetalert2'
 import { minProductValue } from 'shared/constants/constants'
 
 type Props = {
 	product: Product
+	addProduct: (product: Product, quantity: number) => void
 }
 
-const ProductCard = ({ product }: Props): ReactElement => {
-	const { addProductInStorage } = useProductLocalStorage()
+const ProductCard = ({ product, addProduct }: Props): ReactElement => {
 	const [counter, setCounter] = useState(minProductValue)
 
 	const onAddNewProducts = () => {
-		addProductInStorage(product, counter)
+		addProduct(product, counter)
 
 		Swal.fire(
 			'Correcto',

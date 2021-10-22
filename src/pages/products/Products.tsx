@@ -1,13 +1,11 @@
-import React, { ReactElement } from 'react'
+import React, { ReactNode } from 'react'
 import MainLayout from 'components/layouts/MainLayout'
-import ProductList from 'components/organisms/ProductList'
+import ProductsMain from 'components/templates/ProductsMain'
 
-const Products = (): ReactElement => {
-	return (
-		<MainLayout>
-			<ProductList />
-		</MainLayout>
-	)
-}
+const Products = (): ReactNode => (
+	<MainLayout>
+		<ProductsMain />
+	</MainLayout>
+)
 
 export default Products

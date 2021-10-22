@@ -6,8 +6,10 @@ import ContentImage from 'components/atoms/ContentImage'
 import { formatProduct } from 'shared/utils/format'
 import { Else, If, Then } from 'react-if'
 import LoadingSpinner from 'components/atoms/LoadingSpinner'
+import useProductLocalStorage from 'hooks/useProductLocalStorage'
 
 const ProductList = (): ReactElement => {
+	const { addProductInStorage } = useProductLocalStorage()
 	const [loading, setLoading] = useState(false)
 	const [products, setProducts] = useState<Product[]>([])
 
@@ -27,6 +29,9 @@ const ProductList = (): ReactElement => {
 		}
 	}
 
+	const addProduct = (product: Product, quantity: number) =>
+		addProductInStorage(product, quantity)
+
 	return (
 		<>
 			<If condition={loading}>
@@ -36,7 +41,11 @@ const ProductList = (): ReactElement => {
 				<Else>
 					<ContentImage title="Lista de productos">
 						{products.map((product) => (
-							<ProductCard key={product.id} product={product} />
+							<ProductCard
+								key={product.id}
+								product={product}
+								addProduct={addProduct}
+							/>
 						))}
 					</ContentImage>
 				</Else>
