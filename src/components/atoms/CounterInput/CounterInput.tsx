@@ -6,14 +6,15 @@ type Props = {
 }
 
 const CounterInput = ({ value, setCounter }: Props): ReactElement => {
-	const minimumValue = 0
+	const minimumValue = 1
+
 	const increment = () => setCounter((currentValue) => currentValue + 1)
 
 	const decrement = () =>
 		setCounter((currentValue) => validateMinimum(currentValue))
 
 	const validateMinimum = (currentValue: number): number =>
-		currentValue <= minimumValue ? 0 : currentValue - 1
+		currentValue <= minimumValue ? minimumValue : currentValue - 1
 
 	return (
 		<>
