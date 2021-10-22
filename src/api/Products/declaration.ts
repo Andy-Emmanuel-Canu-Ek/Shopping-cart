@@ -5,4 +5,5 @@ export interface Product extends Model {
 	name: string
 	cover: string
 	price: number
+	quantity?: number
 }
