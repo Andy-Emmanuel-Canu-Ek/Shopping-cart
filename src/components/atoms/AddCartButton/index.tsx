@@ -1,2 +1,2 @@
-import AddCartButton from "./AddCartButton";
-export default AddCartButton;
+import AddCartButton from './AddCartButton'
+export default AddCartButton
