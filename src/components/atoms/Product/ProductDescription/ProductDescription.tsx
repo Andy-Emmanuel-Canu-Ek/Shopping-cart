@@ -7,7 +7,6 @@ type Props = {
 }
 
 const ProductDescription = ({
-	cover,
 	name,
 	price,
 }: Props): ReactElement => (
