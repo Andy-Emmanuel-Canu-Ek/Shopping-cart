@@ -1,9 +1,10 @@
 import { Product } from 'api/Products/declaration'
 import { useEffect, useState } from 'react'
 import { PRODUCTS_KEY } from 'shared/constants/local_storage_keys'
+import { ProductLocalStorage } from 'shared/types/local_storage'
 import { getProductsFromLocalStorage } from 'shared/utils/local_storage'
 
-export default function useProductLocalStorage() {
+export default function useProductLocalStorage(): ProductLocalStorage {
 	const [productsStorage, setProductsStorage] = useState<Product[] | []>()
 
 	useEffect(() => {
@@ -12,13 +13,15 @@ export default function useProductLocalStorage() {
 
 	const addProductInStorage = (product: Product, quantity: number) => {
 		const products: Product[] = validateProduct(product, quantity, true)
-		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products))
-		setProductsStorage(products)
+		const sortProducts = products.sort(({ id: a }, { id: b }) => a - b)
+		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(sortProducts))
+		setProductsStorage(sortProducts)
 	}
 
 	const lessProductInStorage = (product: Product, quantity: number) => {
 		const products: Product[] = validateProduct(product, quantity, false)
-		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products))
+		const sortProducts = products.sort(({ id: a }, { id: b }) => a - b)
+		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(sortProducts))
 		setProductsStorage(products)
 	}
 
