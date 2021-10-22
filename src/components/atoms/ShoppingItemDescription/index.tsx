@@ -1,0 +1,2 @@
+import ShoppingItemDescription from './ShoppingItemDescription'
+export default ShoppingItemDescription
