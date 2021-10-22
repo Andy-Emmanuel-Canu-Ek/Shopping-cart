@@ -8,10 +8,10 @@ type Props = {
 }
 
 const ProductCard = ({ product }: Props): ReactElement => (
-	<div className="group relative">
+	<a className="group">
 		<ProductImage image_url={product.cover} />
 		<ProductDescription {...product} />
-	</div>
+	</a>
 )
 
 export default ProductCard
