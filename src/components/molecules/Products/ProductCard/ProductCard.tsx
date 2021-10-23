@@ -19,7 +19,7 @@ const ProductCard = ({ product, addProduct }: Props): ReactElement => {
 
 	const onAddNewProducts = () =>
 		Swal.fire({
-			title: `¿Desea agregar estos ${productText} al carrito?`,
+			title: `¿Desea agregar ${productText} al carrito?`,
 			showCancelButton: true,
 			confirmButtonText: 'Sí',
 			cancelButtonText: 'No',
