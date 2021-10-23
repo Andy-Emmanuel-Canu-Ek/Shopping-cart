@@ -1,15 +1,15 @@
-import useProductLocalStorage from 'hooks/useProductLocalStorage'
-import React, { useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { ProductLocalStorage } from 'shared/types/local_storage'
 import { formatMoney } from 'shared/utils/money'
 import Router from 'next/router'
 import Swal from 'sweetalert2'
+import routes from 'shared/constants/routes'
 
 type Props = {
 	productLocalStorage: ProductLocalStorage
 }
 
-const ShoppingAmount = ({ productLocalStorage }: Props) => {
+const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
 	const [total, setTotal] = useState(0)
 	const { productsStorage, clearProductsStorage } = productLocalStorage
 
@@ -33,7 +33,7 @@ const ShoppingAmount = ({ productLocalStorage }: Props) => {
 	const onPayment = () =>
 		Swal.fire({
 			title:
-				'¿Desea realizar el pago de los productos agregados al carrito?',
+			'¿Desea realizar el pago de los productos agregados al carrito?',
 			showDenyButton: true,
 			confirmButtonText: 'Sí',
 			denyButtonText: 'No, quiero seguir agregando productos',
@@ -50,7 +50,7 @@ const ShoppingAmount = ({ productLocalStorage }: Props) => {
 			}
 		})
 
-	const goToShopping = () => Router.push('/products')
+	const goToShopping = () => Router.push(routes.products)
 
 	return (
 		<div
@@ -59,9 +59,22 @@ const ShoppingAmount = ({ productLocalStorage }: Props) => {
             px-4 sm:py-24 sm:px-6 
             lg:max-w-7xl lg:px-8"
 		>
-			<div className="grid grid-cols-1 md:grid-cols-3 ">
-				<div className="border-t border-gray-200 py-6 px-4 sm:px-6">
-					<div className="flex justify-between text-base font-medium text-gray-900">
+			<div
+				className="
+					grid grid-cols-1 
+					md:grid-cols-3 "
+			>
+				<div
+					className="
+						border-t border-gray-200 
+						py-6 px-4 sm:px-6"
+				>
+					<div
+						className="
+							flex justify-between 
+							text-base font-medium 
+							text-gray-900"
+					>
 						<p>Total</p>
 						<p>{formatMoney(total)}</p>
 					</div>
@@ -98,7 +111,8 @@ const ShoppingAmount = ({ productLocalStorage }: Props) => {
 									text-indigo-600 
 									font-medium hover:text-indigo-500"
 							>
-								Continuar comprando<span aria-hidden="true"> &rarr;</span>
+								Continuar comprando
+								<span aria-hidden="true"> &rarr;</span>
 							</button>
 						</p>
 					</div>

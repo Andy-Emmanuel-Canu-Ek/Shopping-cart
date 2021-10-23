@@ -4,6 +4,10 @@ import ShoppingCartContent from 'components/organisms/ShoppingCartContent'
 import ShoppingAmount from 'components/organisms/ShoppingAmount'
 import { ProductLocalStorage } from 'shared/types/local_storage'
 import useProductLocalStorage from 'hooks/useProductLocalStorage'
+import Content from 'components/atoms/Content'
+import Router from 'next/router'
+import COLORS from 'shared/constants/colors'
+import routes from 'shared/constants/routes'
 
 const MainShoppingCart = (): ReactElement => {
 	const useCurrentProductLocalStorage: ProductLocalStorage =
@@ -11,6 +15,8 @@ const MainShoppingCart = (): ReactElement => {
 
 	const { productsStorage } = useCurrentProductLocalStorage
 	const cartHasProducts = productsStorage?.length > 0
+
+	const goToProducts = () => Router.push(routes.products)
 
 	return (
 		<div>
@@ -23,7 +29,19 @@ const MainShoppingCart = (): ReactElement => {
 						productLocalStorage={useCurrentProductLocalStorage}
 					/>
 				</Then>
-				<Else>El carrito de compras no tiene productos agregados</Else>
+				<Else>
+					<Content>
+						<p>
+							Aun no hay productos agregados en el carrito{' '}
+							<label
+								onClick={goToProducts}
+								style={{ color: COLORS.PRIMARY_COLOR }}
+							>
+								ir a productos
+							</label>
+						</p>
+					</Content>
+				</Else>
 			</If>
 		</div>
 	)
