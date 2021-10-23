@@ -3,14 +3,26 @@ import { minProductValue } from 'shared/constants/constants'
 
 type Props = {
 	value: number
-	setCounter: Dispatch<SetStateAction<number>>
+	setValue: Dispatch<SetStateAction<number>>
+	onSum?: () => void
+	onLess?: () => void
 }
 
-const CounterInput = ({ value, setCounter }: Props): ReactElement => {
-	const increment = () => setCounter((currentValue) => currentValue + 1)
+const CounterInput = ({
+	value,
+	setValue,
+	onSum,
+	onLess,
+}: Props): ReactElement => {
+	const increment = () => {
+		setValue((currentValue) => currentValue + 1)
+		onSum && onSum()
+	}
 
-	const decrement = () =>
-		setCounter((currentValue) => validateMinimum(currentValue))
+	const decrement = () => {
+		setValue((currentValue) => validateMinimum(currentValue))
+		onLess && onLess()
+	}
 
 	const validateMinimum = (currentValue: number): number =>
 		currentValue <= minProductValue ? minProductValue : currentValue - 1
@@ -28,7 +40,7 @@ const CounterInput = ({ value, setCounter }: Props): ReactElement => {
 				</label>
 				<div
 					className="
-                    flex flex-row h-10 w-full
+                    flex flex-row h-8 w-full
                     rounded-lg relative bg-transparent mt-1"
 				>
 					<button
