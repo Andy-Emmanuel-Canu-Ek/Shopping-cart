@@ -15,23 +15,31 @@ type Props = {
 const ProductCard = ({ product, addProduct }: Props): ReactElement => {
 	const [counter, setCounter] = useState(minProductValue)
 
-	const onAddNewProducts = () => {
-		addProduct(product, counter)
+	const productText = `${counter} producto${counter > 1 ? 's' : ''}`
 
-		Swal.fire(
-			'Correcto',
-			`Se agrego ${counter} producto${counter > 1 ? 's' : ''} al carrito`,
-			'success',
-		)
-
-		setCounter(minProductValue)
-	}
+	const onAddNewProducts = () =>
+		Swal.fire({
+			title: `¿Desea agregar estos ${productText} al carrito?`,
+			showCancelButton: true,
+			confirmButtonText: 'Sí',
+			cancelButtonText: 'No',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				addProduct(product, counter)
+				Swal.fire(
+					'Correcto',
+					`Se agrego ${productText} al carrito`,
+					'success',
+				)
+				setCounter(minProductValue)
+			}
+		})
 
 	return (
 		<a className="group">
 			<ProductImage image_url={product.cover} />
 			<ProductDescription {...product} />
-			<CounterInput value={counter} setCounter={setCounter} />
+			<CounterInput value={counter} setValue={setCounter} />
 			<AddCartButton onAddNewProducts={onAddNewProducts} />
 		</a>
 	)
