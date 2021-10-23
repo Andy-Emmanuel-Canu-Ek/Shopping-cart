@@ -54,19 +54,15 @@ const CounterInput = ({
 					>
 						<span className="m-auto text-2xl font-thin">−</span>
 					</button>
-					<input
-						type="number"
+					<label
 						className="
-                        outline-none focus:outline-none
-                        text-center w-full bg-gray-300
+                        text-center w-auto p-2 bg-gray-300
                         font-semibold text-md hover:text-black
                         focus:text-black  md:text-basecursor-default
-                        flex items-center text-gray-700  outline-none"
-						name="custom-input-number"
-						defaultValue={minProductValue}
-						min={minProductValue}
-						value={value}
-					/>
+                        flex items-center text-gray-700  outline-none content-between"
+						>
+						{ value }
+					</label>
 					<button
 						onClick={increment}
 						data-action="increment"
