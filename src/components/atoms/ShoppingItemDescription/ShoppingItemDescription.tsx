@@ -21,7 +21,7 @@ const ShoppingItemDescription = ({
 		product.quantity || minProductValue,
 	)
 
-	const { id, cover = '', name = '', price = 0, quantity = 0 } = product
+	const { cover = '', name = '', price = 0 } = product
 
 	const onRemove = () => removeProduct(product)
 
