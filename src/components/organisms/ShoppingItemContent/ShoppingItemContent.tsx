@@ -8,7 +8,7 @@ type Props = {
 	productLocalStorage: ProductLocalStorage
 }
 
-const ShoppingCartContent = ({
+const ShoppingItemContent = ({
 	productLocalStorage,
 }: Props): ReactElement => {
 	const {
@@ -62,4 +62,4 @@ const ShoppingCartContent = ({
 	)
 }
 
-export default ShoppingCartContent
+export default ShoppingItemContent
