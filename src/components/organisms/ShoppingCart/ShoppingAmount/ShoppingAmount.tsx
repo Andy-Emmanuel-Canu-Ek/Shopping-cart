@@ -74,7 +74,7 @@ const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
 					<p>{formatMoney(total)}</p>
 				</div>
 				<p className="mt-0.5 text-sm text-gray-500">
-					Este es el total de compra de los productos en carrito.
+					Costo total de los productos agregados al carrito.
 				</p>
 				<div className="mt-6">
 					<button
