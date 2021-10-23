@@ -1,10 +1,13 @@
 import React, { ReactNode } from 'react'
 import MainLayout from 'components/layouts/MainLayout'
-import ProductsMain from 'components/templates/ProductsMain'
+import ProductList from 'components/organisms/ProductList'
+import Content from 'components/atoms/Content'
 
 const Products = (): ReactNode => (
 	<MainLayout>
-		<ProductsMain />
+		<Content>
+			<ProductList />
+		</Content>
 	</MainLayout>
 )
 
