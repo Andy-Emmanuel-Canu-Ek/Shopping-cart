@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Else, If, Then } from 'react-if'
-import ShoppingCartContent from 'components/organisms/ShoppingCartContent'
-import ShoppingAmount from 'components/organisms/ShoppingAmount'
+import ShoppingItemContent from 'components/organisms/ShoppingCart/ShoppingItemContent'
+import ShoppingAmount from 'components/organisms/ShoppingCart/ShoppingAmount'
 import { ProductLocalStorage } from 'shared/types/local_storage'
 import useProductLocalStorage from 'hooks/useProductLocalStorage'
 import Content from 'components/atoms/Content'
@@ -24,7 +24,7 @@ const MainShoppingCart = (): ReactElement => {
 				<Then>
 					<div className="grid grid-cols-2 gap-4 divide-x">
 						<div>
-							<ShoppingCartContent
+							<ShoppingItemContent
 								productLocalStorage={useCurrentProductLocalStorage}
 							/>
 						</div>
