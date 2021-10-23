@@ -11,7 +11,6 @@ type Props = {
 const ShoppingCartContent = ({
 	productLocalStorage,
 }: Props): ReactElement => {
-
 	const {
 		productsStorage,
 		addProductInStorage,
@@ -45,21 +44,19 @@ const ShoppingCartContent = ({
 				px-4 sm:py-24 sm:px-6 
 				lg:max-w-7xl lg:px-8"
 		>
-			<div className="grid grid-cols-1 md:grid-cols-3 ">
-				<div className="flow-root h-2/5">
-					<ul role="list" className="-my-6 divide-y divide-gray-200">
-						{productsStorage?.map((product) => (
-							<li key={product.id} className="py-6 flex">
-								<ShoppingItem
-									product={product}
-									addProduct={addProductInStorage}
-									lessProduct={lessProductInStorage}
-									removeProduct={removeProduct}
-								/>
-							</li>
-						))}
-					</ul>
-				</div>
+			<div className="flow-root h-2/5">
+				<ul role="list" className="-my-6 divide-y divide-gray-200">
+					{productsStorage?.map((product) => (
+						<li key={product.id} className="py-6 flex">
+							<ShoppingItem
+								product={product}
+								addProduct={addProductInStorage}
+								lessProduct={lessProductInStorage}
+								removeProduct={removeProduct}
+							/>
+						</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	)

@@ -33,7 +33,7 @@ const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
 	const onPayment = () =>
 		Swal.fire({
 			title:
-			'¿Desea realizar el pago de los productos agregados al carrito?',
+				'¿Desea realizar el pago de los productos agregados al carrito?',
 			showDenyButton: true,
 			confirmButtonText: 'Sí',
 			denyButtonText: 'No, quiero seguir agregando productos',
@@ -61,30 +61,25 @@ const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
 		>
 			<div
 				className="
-					grid grid-cols-1 
-					md:grid-cols-3 "
+						border-t border-gray-200 
+						py-6 px-4 sm:px-6"
 			>
 				<div
 					className="
-						border-t border-gray-200 
-						py-6 px-4 sm:px-6"
-				>
-					<div
-						className="
 							flex justify-between 
 							text-base font-medium 
 							text-gray-900"
-					>
-						<p>Total</p>
-						<p>{formatMoney(total)}</p>
-					</div>
-					<p className="mt-0.5 text-sm text-gray-500">
-						Este es el total de compra de los productos en carrito.
-					</p>
-					<div className="mt-6">
-						<button
-							onClick={onPayment}
-							className="
+				>
+					<p>Total</p>
+					<p>{formatMoney(total)}</p>
+				</div>
+				<p className="mt-0.5 text-sm text-gray-500">
+					Este es el total de compra de los productos en carrito.
+				</p>
+				<div className="mt-6">
+					<button
+						onClick={onPayment}
+						className="
                    				mt-6 w-full bg-indigo-600 
                    				border border-transparent 
                    				rounded-md py-3 px-8 flex 
@@ -93,29 +88,28 @@ const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
                    				hover:bg-indigo-700 focus:outline-none 
                    				focus:ring-2 focus:ring-offset-2 
                    				focus:ring-indigo-500"
-						>
-							Pagar
-						</button>
-					</div>
-					<div
-						className="
+					>
+						Pagar
+					</button>
+				</div>
+				<div
+					className="
 							mt-6 flex justify-center 
 							text-sm text-center text-gray-500"
-					>
-						<p>
-							or{' '}
-							<button
-								onClick={goToShopping}
-								type="button"
-								className="
+				>
+					<p>
+						or{' '}
+						<button
+							onClick={goToShopping}
+							type="button"
+							className="
 									text-indigo-600 
 									font-medium hover:text-indigo-500"
-							>
-								Continuar comprando
-								<span aria-hidden="true"> &rarr;</span>
-							</button>
-						</p>
-					</div>
+						>
+							Continuar comprando
+							<span aria-hidden="true"> &rarr;</span>
+						</button>
+					</p>
 				</div>
 			</div>
 		</div>

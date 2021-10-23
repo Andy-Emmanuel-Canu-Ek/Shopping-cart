@@ -46,8 +46,8 @@ const Navbar = (): ReactElement => (
 								)}
 							</Disclosure.Button>
 						</div>
-						<NavbarTabs />
 						<ContentIconImages />
+						<NavbarTabs />
 						<ShoppingCartButton />
 					</div>
 				</div>

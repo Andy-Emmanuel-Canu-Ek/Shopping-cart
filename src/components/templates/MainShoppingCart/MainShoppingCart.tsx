@@ -22,12 +22,18 @@ const MainShoppingCart = (): ReactElement => {
 		<div>
 			<If condition={cartHasProducts}>
 				<Then>
-					<ShoppingCartContent
-						productLocalStorage={useCurrentProductLocalStorage}
-					/>
-					<ShoppingAmount
-						productLocalStorage={useCurrentProductLocalStorage}
-					/>
+					<div className="grid grid-cols-2 gap-4 divide-x">
+						<div>
+							<ShoppingCartContent
+								productLocalStorage={useCurrentProductLocalStorage}
+							/>
+						</div>
+						<div>
+							<ShoppingAmount
+								productLocalStorage={useCurrentProductLocalStorage}
+							/>
+						</div>
+					</div>
 				</Then>
 				<Else>
 					<Content>
