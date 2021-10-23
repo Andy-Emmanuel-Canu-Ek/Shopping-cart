@@ -1,6 +1,8 @@
 import React, { ReactElement } from 'react'
 import { Product } from 'api/Products/declaration'
-import ShoppingItemImage from 'components/atoms/ShoppingItemImage'
+import 
+ShoppingItemImage 
+from 'components/atoms/ShoppingCart/ShoppingItemImage'
 
 type Props = {
 	product: Product

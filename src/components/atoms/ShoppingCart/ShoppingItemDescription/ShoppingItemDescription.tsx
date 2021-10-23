@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import { Product } from 'api/Products/declaration'
 import { formatMoney } from 'shared/utils/money'
-import CounterInput from '../CounterInput'
+import CounterInput from '../../CounterInput'
 import { minProductValue } from 'shared/constants/constants'
 
 type Props = {
