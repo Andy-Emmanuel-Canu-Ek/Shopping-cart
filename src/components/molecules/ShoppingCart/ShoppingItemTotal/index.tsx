@@ -1,2 +1,2 @@
-import ShoppingItem from './ShoppingItem'
-export default ShoppingItem
+import ShoppingItemTotal from './ShoppingItemTotal'
+export default ShoppingItemTotal
