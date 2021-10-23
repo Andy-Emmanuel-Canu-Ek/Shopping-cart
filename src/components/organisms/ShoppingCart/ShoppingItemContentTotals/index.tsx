@@ -1,0 +1,2 @@
+import ShoppingItemContentTotals from './ShoppingItemContentTotals'
+export default ShoppingItemContentTotals
