@@ -59,8 +59,7 @@ const CounterInput = ({
                         text-center w-auto p-2 bg-gray-300
                         font-semibold text-md hover:text-black
                         focus:text-black  md:text-basecursor-default
-                        flex items-center text-gray-700  outline-none content-between"
-						>
+                        flex items-center text-gray-700  outline-none content-between">
 						{ value }
 					</label>
 					<button
