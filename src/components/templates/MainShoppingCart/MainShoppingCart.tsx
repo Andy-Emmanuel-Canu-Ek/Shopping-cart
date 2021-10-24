@@ -8,6 +8,8 @@ import Content from 'components/atoms/Content'
 import Router from 'next/router'
 import COLORS from 'shared/constants/colors'
 import routes from 'shared/constants/routes'
+import ShoppingItemContentTotals 
+	from 'components/organisms/ShoppingCart/ShoppingItemContentTotals'
 
 const MainShoppingCart = (): ReactElement => {
 	const useCurrentProductLocalStorage: ProductLocalStorage =
@@ -29,6 +31,7 @@ const MainShoppingCart = (): ReactElement => {
 							/>
 						</div>
 						<div>
+							<ShoppingItemContentTotals products={productsStorage} />
 							<ShoppingAmount
 								productLocalStorage={useCurrentProductLocalStorage}
 							/>
