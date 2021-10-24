@@ -1,10 +1,10 @@
-import React, { ReactElement, useContext, useLayoutEffect } from 'react'
+import React, { ReactElement, useContext } from 'react'
 import { ShoppingCartIcon } from '@heroicons/react/outline'
 import UserProfile from './UserProfile'
 import Router from 'next/router'
 import routes from 'shared/constants/routes'
 import { ShoppingCartContext } from 'context/ShoppingCartContext'
-import { If, When } from 'react-if'
+import { When } from 'react-if'
 
 const NavbarRigthIcons = (): ReactElement => {
 	const { shoppingCartState } = useContext(ShoppingCartContext)
