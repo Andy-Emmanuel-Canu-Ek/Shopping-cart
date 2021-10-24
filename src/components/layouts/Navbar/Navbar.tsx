@@ -1,10 +1,11 @@
-/* This example requires Tailwind CSS v2.0+ */
-import React, { ReactElement } from 'react'
 import { Disclosure } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import ContentIconImages from './NavbarSections/ContentIconImages'
-import { NavbarTabs } from './NavbarSections/NavbarTabs'
-import { ShoppingCartButton } from './NavbarSections/ShoppingCartButton'
+import { ReactElement } from 'react'
+import NavbarMenuButtom from './NavbarSections/NavbarMenuButtom'
+import NavbarRigthIcons from './NavbarSections/NavBarRigthIcons'
+import {
+	ResponsiveNavbarTabs,
+	DefaultNavbarTabs,
+} from './NavbarSections/NavbarTabs'
 
 const Navbar = (): ReactElement => (
 	<Disclosure as="nav" className="bg-gray-800">
@@ -12,45 +13,21 @@ const Navbar = (): ReactElement => (
 			<>
 				<div
 					className="
-							max-w-7xl mx-auto 
-							px-2 sm:px-6 lg:px-8"
+						max-w-7xl mx-auto 
+						px-2 sm:px-6 lg:px-8"
 				>
 					<div
 						className="
-								relative flex items-center 
-								justify-between h-16"
+							relative flex items-center
+							justify-between h-16"
 					>
-						<div
-							className="
-									absolute inset-y-0 
-									left-0 flex items-center sm:hidden"
-						>
-							<Disclosure.Button
-								className="
-                                      inline-flex items-center 
-                                      justify-center p-2 rounded-md 
-                                      text-gray-400 hover:text-white 
-                                      hover:bg-gray-700 focus:outline-none 
-                                      focus:ring-2 focus:ring-inset 
-									  focus:ring-white"
-							>
-								<span className="sr-only">Open main menu</span>
-								{open ? (
-									<XIcon 
-										className="block h-6 w-6" 
-										aria-hidden="true" />
-								) : (
-									<MenuIcon 
-										className="block h-6 w-6" 
-										aria-hidden="true" />
-								)}
-							</Disclosure.Button>
-						</div>
-						<ContentIconImages />
-						<NavbarTabs />
-						<ShoppingCartButton />
+						<NavbarMenuButtom open={open} />
+						<DefaultNavbarTabs />
+						<NavbarRigthIcons />
 					</div>
 				</div>
+
+				<ResponsiveNavbarTabs />
 			</>
 		)}
 	</Disclosure>
