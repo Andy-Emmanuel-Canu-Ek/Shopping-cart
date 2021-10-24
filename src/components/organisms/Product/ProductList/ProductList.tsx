@@ -1,17 +1,23 @@
 import ProductsService from 'api/Products'
 import { Product } from 'api/Products/declaration'
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useContext, useEffect, useState } from 'react'
 import ProductCard from 'components/molecules/Products/ProductCard'
 import ContentImage from 'components/atoms/ContentImage'
 import { formatProduct } from 'shared/utils/format'
 import { Else, If, Then } from 'react-if'
 import LoadingSpinner from 'components/atoms/LoadingSpinner'
 import useProductLocalStorage from 'hooks/useProductLocalStorage'
+import { ShoppingCartContext } from 'context/ShoppingCartContext'
 
 const ProductList = (): ReactElement => {
-	const { addProductInStorage } = useProductLocalStorage()
+	const { setShoppingCartState } = useContext(ShoppingCartContext)
+	const { productsStorage, addProductInStorage } = useProductLocalStorage()
 	const [loading, setLoading] = useState(false)
 	const [products, setProducts] = useState<Product[]>([])
+
+	useEffect(() => {
+		setShoppingCartState({ products: productsStorage })
+	}, [productsStorage])
 
 	useEffect(() => {
 		getProductList()

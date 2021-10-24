@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useContext, useEffect } from 'react'
 import { Else, If, Then } from 'react-if'
 import ShoppingItemContent from 'components/organisms/ShoppingCart/ShoppingItemContent'
 import ShoppingAmount from 'components/organisms/ShoppingCart/ShoppingAmount'
@@ -8,14 +8,20 @@ import Content from 'components/atoms/Content'
 import Router from 'next/router'
 import COLORS from 'shared/constants/colors'
 import routes from 'shared/constants/routes'
-import ShoppingItemContentTotals 
-	from 'components/organisms/ShoppingCart/ShoppingItemContentTotals'
+import ShoppingItemContentTotals from 'components/organisms/ShoppingCart/ShoppingItemContentTotals'
+import { ShoppingCartContext } from 'context/ShoppingCartContext'
 
 const MainShoppingCart = (): ReactElement => {
+	const { setShoppingCartState } = useContext(ShoppingCartContext)
 	const useCurrentProductLocalStorage: ProductLocalStorage =
 		useProductLocalStorage()
 
 	const { productsStorage } = useCurrentProductLocalStorage
+
+	useEffect(() => {
+		setShoppingCartState({ products: productsStorage })
+	}, [productsStorage])
+
 	const cartHasProducts = productsStorage?.length > 0
 
 	const goToProducts = () => Router.push(routes.products)
