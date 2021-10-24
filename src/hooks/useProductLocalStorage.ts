@@ -1,33 +1,41 @@
 import { Product } from 'api/Products/declaration'
-import { useEffect, useState } from 'react'
+import { ShoppingCartContext } from 'context/ShoppingCartContext'
+import { useContext, useEffect, useState } from 'react'
 import { PRODUCTS_KEY } from 'shared/constants/local_storage_keys'
 import { ProductLocalStorage } from 'shared/types/local_storage'
 import { getProductsFromLocalStorage } from 'shared/utils/local_storage'
 
 export default function useProductLocalStorage(): ProductLocalStorage {
+	const { setShoppingCartState } = useContext(ShoppingCartContext)
 	const [productsStorage, setProductsStorage] = useState<Product[] | []>()
 
 	useEffect(() => {
-		setProductsStorage(getProductsFromLocalStorage())
+		setProductsState(getProductsFromLocalStorage())
 	}, [])
 
 	const addProductInStorage = (product: Product, quantity: number) => {
 		const products: Product[] = validateProduct(product, quantity, true)
-		const sortProducts = products.sort(({ id: a }, { id: b }) => a - b)
-		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(sortProducts))
-		setProductsStorage(sortProducts)
+		saveProducts(products)
 	}
 
 	const lessProductInStorage = (product: Product, quantity: number) => {
 		const products: Product[] = validateProduct(product, quantity, false)
-		const sortProducts = products.sort(({ id: a }, { id: b }) => a - b)
-		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(sortProducts))
-		setProductsStorage(products)
+		saveProducts(products)
 	}
 
 	const removeProductStorage = (product: Product) => {
 		const products = removeItem(product.id, productsStorage)
-		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products))
+		saveProducts(products)
+	}
+
+	const saveProducts = (products: Product[]) => {
+		const sortProducts = products.sort(({ id: a }, { id: b }) => a - b)
+		localStorage.setItem(PRODUCTS_KEY, JSON.stringify(sortProducts))
+		setProductsState(sortProducts)
+	}
+
+	const setProductsState = (products: Product[]) => {
+		setShoppingCartState({ products })
 		setProductsStorage(products)
 	}
 
