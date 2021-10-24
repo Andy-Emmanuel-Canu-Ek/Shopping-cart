@@ -8,7 +8,7 @@ import {
 } from './NavbarSections/NavbarTabs'
 
 const Navbar = (): ReactElement => (
-	<Disclosure as="nav" className="bg-gray-800">
+	<Disclosure as="nav" className="bg-gray-800 fixed w-full z-10 top-0">
 		{({ open }) => (
 			<>
 				<div
