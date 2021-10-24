@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 type Props = {
 	title: string
 }
 
-const ContentTitle = ({ title = '' }) => (
+const ContentTitle = ({ title = '' }: Props): ReactElement => (
 	<h2
 		className="
         text-2xl font-extrabold 

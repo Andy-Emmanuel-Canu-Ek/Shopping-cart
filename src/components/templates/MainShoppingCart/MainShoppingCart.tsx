@@ -29,7 +29,11 @@ const MainShoppingCart = (): ReactElement => {
 						<ContentTitle title="Productos agregados" />
 					</div>
 
-					<div className="grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 md:divide-x lg:divide-x  mt-16">
+					<div className="
+							grid lg:grid-cols-2 
+							sm:grid-cols-1 md:grid-cols-2 
+							md:divide-x lg:divide-x  mt-16">
+								
 						<div className="p-10">
 							<ShoppingItemContent
 								productLocalStorage={useCurrentProductLocalStorage}
