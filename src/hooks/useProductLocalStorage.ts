@@ -68,7 +68,10 @@ export default function useProductLocalStorage(): ProductLocalStorage {
 	const removeItem = (item_id: number, products: Product[]): Product[] =>
 		products.filter(({ id }) => id !== item_id)
 
-	const clearProductsStorage = () => localStorage.removeItem(PRODUCTS_KEY)
+	const clearProductsStorage = () => {
+		localStorage.removeItem(PRODUCTS_KEY)
+		setProductsState([])
+	}
 
 	return {
 		productsStorage,
