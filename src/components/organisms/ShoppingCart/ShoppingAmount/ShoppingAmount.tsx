@@ -33,7 +33,7 @@ const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
 	const onPayment = () =>
 		Swal.fire({
 			title:
-				'¿Desea realizar el pago de los productos agregados al carrito?',
+				'¿Usted quiere realizar el pago de los productos agregados al carrito?',
 			showDenyButton: true,
 			confirmButtonText: 'Sí',
 			denyButtonText: 'No, quiero seguir agregando productos',
@@ -43,7 +43,7 @@ const ShoppingAmount = ({ productLocalStorage }: Props): ReactElement => {
 				clearProductsStorage()
 				Swal.fire(
 					'Compra realizada',
-					'Su compra se realizo completamente',
+					'Su compra se realizo correctamente',
 					'success',
 				)
 				goToShopping()
