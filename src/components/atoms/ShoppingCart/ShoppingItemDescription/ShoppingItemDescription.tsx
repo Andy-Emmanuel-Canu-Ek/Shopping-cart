@@ -63,7 +63,7 @@ const ShoppingItemDescription = ({
                             font-medium text-indigo-600 
                             hover:text-indigo-500"
 					>
-						Remove
+						Eliminar
 					</button>
 				</div>
 			</div>
