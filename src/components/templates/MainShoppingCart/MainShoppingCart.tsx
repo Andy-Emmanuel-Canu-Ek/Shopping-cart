@@ -8,8 +8,8 @@ import Content from 'components/atoms/Content'
 import Router from 'next/router'
 import COLORS from 'shared/constants/colors'
 import routes from 'shared/constants/routes'
-import ShoppingItemContentTotals 
-	from 'components/organisms/ShoppingCart/ShoppingItemContentTotals'
+import ShoppingItemContentTotals from 'components/organisms/ShoppingCart/ShoppingItemContentTotals'
+import ContentTitle from 'components/atoms/ContentTitle'
 
 const MainShoppingCart = (): ReactElement => {
 	const useCurrentProductLocalStorage: ProductLocalStorage =
@@ -25,13 +25,17 @@ const MainShoppingCart = (): ReactElement => {
 		<div>
 			<If condition={cartHasProducts}>
 				<Then>
-					<div className="grid grid-cols-2 gap-4 divide-x">
-						<div>
+					<div className="mt-32 text-center">
+						<ContentTitle title="Productos agregados" />
+					</div>
+
+					<div className="grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 md:divide-x lg:divide-x  mt-16">
+						<div className="p-10">
 							<ShoppingItemContent
 								productLocalStorage={useCurrentProductLocalStorage}
 							/>
 						</div>
-						<div>
+						<div className="p-10">
 							<ShoppingItemContentTotals products={productsStorage} />
 							<ShoppingAmount
 								productLocalStorage={useCurrentProductLocalStorage}
@@ -41,7 +45,7 @@ const MainShoppingCart = (): ReactElement => {
 				</Then>
 				<Else>
 					<Content>
-						<p>
+						<p className="text-center">
 							Aun no hay productos agregados en el carrito{' '}
 							<label
 								onClick={goToProducts}
