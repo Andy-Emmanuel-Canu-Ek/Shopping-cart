@@ -9,19 +9,18 @@ type Props = {
 const ShoppingItemContentTotals = ({ products }: Props): ReactElement => (
 	<div
 		className="
-				max-w-2xl mx-auto 
-				px-4 sm:py-24 sm:px-6 
-				lg:max-w-7xl lg:px-8"
+			mt-10
+			mb-10
+			sm:px-24 
+			lg:px-24"
 	>
-		<div className="flow-root h-2/5">
-			<ul role="list" className="-my-6 divide-y divide-gray-200">
-				{products?.map((product) => (
-					<li key={product.id} className="py-6 flex">
-						<ShoppingItemTotal product={product} />
-					</li>
-				))}
-			</ul>
-		</div>
+		<ul role="list" className="-my-6 divide-y divide-gray-200">
+			{products?.map((product) => (
+				<li key={product.id} className="py-6 flex">
+					<ShoppingItemTotal product={product} />
+				</li>
+			))}
+		</ul>
 	</div>
 )
 
